@@ -244,8 +244,8 @@ def readCamerasFromTransforms(
         R = np.transpose(w2c[:3, :3])  # R is stored transposed due to 'glm' in CUDA code
         T = w2c[:3, 3]
 
-        image_path = os.path.join(path, 'chapel_day_4k_32x16_rot0', cam_name)
-        print('path ', path, cam_name, image_path)
+        image_path = os.path.join(path, 'chapel_day_4k_32x16_rot0', os.path.basename(cam_name))
+        #print('path ', path, cam_name, image_path)
         image_name = Path(cam_name).stem
         image = Image.open(image_path)
 
