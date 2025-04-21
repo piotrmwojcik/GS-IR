@@ -245,7 +245,7 @@ def readCamerasFromTransforms(
         T = w2c[:3, 3]
 
         image_path = os.path.join(path, 'chapel_day_4k_32x16_rot0', cam_name)
-        print('path ', image_path)
+        print('path ', path, cam_name, image_path)
         image_name = Path(cam_name).stem
         image = Image.open(image_path)
 
