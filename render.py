@@ -299,6 +299,8 @@ def eval_brdf(data_root: str, scene: Scene, model_path: str, name: str) -> None:
     elif name == "test":
         transform_file = os.path.join(data_root, "transforms_test.json")
 
+    print('!!!!! ', pbr_path)
+
     with open(transform_file, "r") as json_file:
         contents = json.load(json_file)
         frames = contents["frames"]
