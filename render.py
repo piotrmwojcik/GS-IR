@@ -343,6 +343,7 @@ def eval_brdf(data_root: str, scene: Scene, model_path: str, name: str) -> None:
         albedo_map[mask] *= three_channel_ratio
         albedo_map = albedo_map.permute(2, 0, 1)  # [3, H, W]
         albedo_gt = albedo_gt.permute(2, 0, 1)  # [3, H, W]
+        print('!!! ', pbr_path)
         torchvision.utils.save_image(albedo_map, os.path.join(pbr_path, f"{idx:05d}_albedo.png"))
         albedo_psnr_avg += get_psnr(albedo_gt, albedo_map).mean().double()
         albedo_ssim_avg += get_ssim(albedo_gt, albedo_map).mean().double()
