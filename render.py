@@ -324,7 +324,7 @@ def eval_brdf(data_root: str, scene: Scene, model_path: str, name: str) -> None:
         albedo_path = frame["file_path"].replace("rgba", "albedo") + ".png"
         albedo_gt = np.array(Image.open(os.path.join(data_root, 'chapel_day_4k_32x16_rot0',
                                                      albedo_path)))[..., :3]
-        mask = np.array(Image.open(os.path.join(data_root, albedo_path)))[..., 3] > 0
+        mask = np.array(Image.open(os.path.join(data_root, 'chapel_day_4k_32x16_rot0',  albedo_path)))[..., 3] > 0
         albedo_gt = torch.from_numpy(albedo_gt).cuda() / 255.0  # [H, W, 3]
         albedo_gts.append(albedo_gt)
         mask = torch.from_numpy(mask).cuda()  # [H, W]
